@@ -1,18 +1,15 @@
 ############################################################
 # Dockerfile to build Nginx Installed Containers
-# Based on Ubuntu
+# Based on Debian
 ############################################################
 
 # Set the base image to Ubuntu
-FROM ubuntu
+FROM debian:jessie
 
 # File Author / Maintainer
 MAINTAINER Mattias Bergbom
 
 # Install Nginx
-
-# Add application repository URL to the default sources
-RUN echo "deb http://old-releases.ubuntu.com/ubuntu/ raring main universe" >> /etc/apt/sources.list
 
 # Update the repository
 RUN apt-get update
@@ -34,4 +31,4 @@ EXPOSE 80
 
 # Set the default command to execute
 # when creating a new container
-CMD service nginx start
+CMD ["service", "nginx", "start"]
