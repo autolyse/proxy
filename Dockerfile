@@ -18,7 +18,7 @@ RUN echo "deb http://old-releases.ubuntu.com/ubuntu/ raring main universe" >> /e
 RUN apt-get update
 
 # Install necessary tools
-RUN apt-get install -y nano wget dialog net-tools
+RUN apt-get install -y nano wget dialog net-tools curl wget screen
 
 # Download and Install Nginx
 RUN apt-get install -y nginx  
@@ -28,9 +28,6 @@ RUN rm -v /etc/nginx/nginx.conf
 
 # Copy a configuration file from the current directory
 ADD nginx.conf /etc/nginx/
-
-# Append "daemon off;" to the beginning of the configuration
-RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 
 # Expose ports
 EXPOSE 80
