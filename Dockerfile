@@ -25,6 +25,7 @@ RUN rm -v /etc/nginx/nginx.conf
 
 # Copy a configuration file from the current directory
 ADD nginx.conf /etc/nginx/
+ADD referrer-spam.conf /etc/nginx/global/
 
 # Expose ports
 EXPOSE 80
